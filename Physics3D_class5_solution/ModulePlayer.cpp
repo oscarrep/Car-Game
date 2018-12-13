@@ -140,7 +140,7 @@ update_status ModulePlayer::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT && App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
-		
+		brake = BRAKE_POWER;
 		
 	}
 

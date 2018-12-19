@@ -95,6 +95,20 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * length(Position);
 	}
+	/*else
+	{
+		mat4x4 matrix;
+		App->player->vehicle->GetTransform(&matrix);
+
+		Position = matrix.translation();
+
+		X = vec3{ matrix[0],matrix[1],matrix[2] };
+		Y = vec3{ matrix[4], matrix[5], matrix[6] };
+		Z = vec3{ matrix[8], matrix[9],matrix[10] };
+
+		vec3 VehicleLocation = { matrix[12], matrix[13] + 7, matrix[14] };
+		Look((VehicleLocation)-Z * 15, VehicleLocation, true);
+	}*/
 
 	// Recalculate matrix -------------
 	CalculateViewMatrix();

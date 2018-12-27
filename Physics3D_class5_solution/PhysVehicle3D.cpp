@@ -38,10 +38,11 @@ void PhysVehicle3D::Render()
 		wheel.Render();
 	}
 
+	btQuaternion q = vehicle->getChassisWorldTransform().getRotation();
+
 	//---CHASSIS
 	Cube chassis(info.chassis_size.x, info.chassis_size.y, info.chassis_size.z);
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&chassis.transform);
-	btQuaternion q = vehicle->getChassisWorldTransform().getRotation();
 	btVector3 offset(info.chassis_offset.x, info.chassis_offset.y, info.chassis_offset.z);
 	offset = offset.rotate(q.getAxis(), q.getAngle());
 
@@ -49,11 +50,13 @@ void PhysVehicle3D::Render()
 	chassis.transform.M[13] += offset.getY();
 	chassis.transform.M[14] += offset.getZ();
 
+	chassis.color = Green;
+
 	//---CABIN
 	Cube cabin(info.cabin_size.x, info.cabin_size.y, info.cabin_size.z);
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&cabin.transform);
 	btVector3 cabinOffset(info.cabin_offset.x, info.cabin_offset.y, info.cabin_offset.z);
-	cabinOffset = offset.rotate(q.getAxis(), q.getAngle());
+	cabinOffset = cabinOffset.rotate(q.getAxis(), q.getAngle());
 
 	cabin.transform.M[12] += cabinOffset.getX();
 	cabin.transform.M[13] += cabinOffset.getY();
@@ -66,7 +69,7 @@ void PhysVehicle3D::Render()
 	Cube L_light(info.L_light_size.x, info.L_light_size.y, info.L_light_size.z);
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&L_light.transform);
 	btVector3 LlightOffset(info.L_light_offset.x, info.L_light_offset.y, info.L_light_offset.z);
-	LlightOffset = offset.rotate(q.getAxis(), q.getAngle());
+	LlightOffset = LlightOffset.rotate(q.getAxis(), q.getAngle());
 
 	L_light.transform.M[12] += LlightOffset.getX();
 	L_light.transform.M[13] += LlightOffset.getY();
@@ -78,7 +81,7 @@ void PhysVehicle3D::Render()
 	Cube R_light(info.R_light_size.x, info.R_light_size.y, info.R_light_size.z);
 	vehicle->getChassisWorldTransform().getOpenGLMatrix(&R_light.transform);
 	btVector3 RlightOffset(info.R_light_offset.x, info.R_light_offset.y, info.R_light_offset.z);
-	RlightOffset = offset.rotate(q.getAxis(), q.getAngle());
+	RlightOffset = RlightOffset.rotate(q.getAxis(), q.getAngle());
 
 	R_light.transform.M[12] += RlightOffset.getX();
 	R_light.transform.M[13] += RlightOffset.getY();
@@ -133,4 +136,13 @@ void PhysVehicle3D::Turn(float degrees)
 float PhysVehicle3D::GetKmh() const
 {
 	return vehicle->getCurrentSpeedKmHour();
+}
+
+vec3 PhysVehicle3D::GetForwardVector() const
+{
+	btVector3 direction;
+	vehicle->getForwardVector();
+	vec3 ret;
+	ret.Set(direction.getX(), direction.getY(), direction.getZ());
+	return ret;
 }

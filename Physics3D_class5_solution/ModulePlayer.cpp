@@ -21,17 +21,17 @@ bool ModulePlayer::Start()
 	VehicleInfo car;
 
 	// Car properties ----------------------------------------
-	car.chassis_size.Set(3, 1, 6);
-	car.chassis_offset.Set(0, 0.7, 0);
+	car.chassis_size.Set(3.0f, 1.0f, 6.0f);
+	car.chassis_offset.Set(0.0f, 0.7f, 0.0f);
 	
-	car.cabin_size.Set(2.5, 1.5, 3);
-	car.cabin_offset.Set(0, 1.2, 1);
+	car.cabin_size.Set(2.9f, 1.5f, 4.0f);
+	car.cabin_offset.Set(0.0f, 1.2f, -0.5f);
 
-	car.L_light_size.Set(0.4, 0.2, 6.05);
-	car.L_light_offset.Set(0, 0.2, -2);
+	car.L_light_size.Set(0.4f, 0.2f, 6.05f);
+	car.L_light_offset.Set(1.0f, 0.9f, 0.0f);
 	
-	car.R_light_size.Set(0.4, 0.2, 6.05);
-	car.R_light_offset.Set(0, 0.2, -2);
+	car.R_light_size.Set(0.4f, 0.2f, 6.05f);
+	car.R_light_offset.Set(-1.0f, 0.9f, 0.0f);
 	
 	car.mass = 500.0f;
 	car.suspensionStiffness = 15.88f;
@@ -107,7 +107,7 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(0, 12, 10);
+	vehicle->SetPos(0, 0, 0);
 	
 	return true;
 }
@@ -157,6 +157,9 @@ update_status ModulePlayer::Update(float dt)
 	vehicle->Brake(brake);
 
 	vehicle->Render();
+	/*vec3 position = vehicle->GetPos();
+	vec3 fvec = vehicle->GetForwardVector();
+	App->camera->Position.Set(position.x - fvec.x, position.y - fvec.y, position.z - fvec.z);*/
 
 	char title[80];
 	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());

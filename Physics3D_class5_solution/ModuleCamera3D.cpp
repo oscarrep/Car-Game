@@ -11,7 +11,7 @@ ModuleCamera3D::ModuleCamera3D(Application* app, bool start_enabled) : Module(ap
 	Y = vec3(0.0f, 1.0f, 0.0f);
 	Z = vec3(0.0f, 0.0f, 1.0f);
 
-	Position = vec3(0.0f, 0.0f, 5.0f);
+	Position = vec3(0.0f, 10.0f, -5.0f);
 	Reference = vec3(0.0f, 0.0f, 0.0f);
 }
 
@@ -40,7 +40,7 @@ update_status ModuleCamera3D::Update(float dt)
 {
 	// Implement a debug camera with keys and mouse
 	// Now we can make this movememnt frame rate independant!
-
+	
 	vec3 newPos(0,0,0);
 	float speed = 3.0f * dt;
 	if(App->input->GetKey(SDL_SCANCODE_LSHIFT) == KEY_REPEAT)
@@ -95,20 +95,18 @@ update_status ModuleCamera3D::Update(float dt)
 
 		Position = Reference + Z * length(Position);
 	}
-	/*else
-	{
-		mat4x4 matrix;
-		App->player->vehicle->GetTransform(&matrix);
 
-		Position = matrix.translation();
+	/*mat4x4 matrix;
+	App->player->vehicle->GetTransform(&matrix);
 
-		X = vec3{ matrix[0],matrix[1],matrix[2] };
-		Y = vec3{ matrix[4], matrix[5], matrix[6] };
-		Z = vec3{ matrix[8], matrix[9],matrix[10] };
+	Position = matrix.translation();
 
-		vec3 VehicleLocation = { matrix[12], matrix[13] + 7, matrix[14] };
-		Look((VehicleLocation)-Z * 15, VehicleLocation, true);
-	}*/
+	X = vec3{ matrix[0],matrix[1],matrix[2] };
+	Y = vec3{ matrix[4], matrix[5], matrix[6] };
+	Z = vec3{ matrix[8], matrix[9],matrix[10] };
+
+	vec3 VehicleLocation = { matrix[12], matrix[13] + 7, matrix[14] };
+	Look((VehicleLocation)-Z * 15, VehicleLocation, true);*/
 
 	// Recalculate matrix -------------
 	CalculateViewMatrix();

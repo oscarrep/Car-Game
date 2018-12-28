@@ -123,6 +123,11 @@ bool ModulePlayer::CleanUp()
 // Update: draw background
 update_status ModulePlayer::Update(float dt)
 {
+	vec3 position = vehicle->GetPos();
+	vec3 fvec = vehicle->GetForwardVector();
+	App->camera->Position.Set(position.x, 10+position.y , 20+position.z);
+	App->camera->LookAt(vehicle->GetPos());
+
 	turn = acceleration = brake = 0.0f;
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
@@ -157,10 +162,7 @@ update_status ModulePlayer::Update(float dt)
 	vehicle->Brake(brake);
 
 	vehicle->Render();
-	/*vec3 position = vehicle->GetPos();
-	vec3 fvec = vehicle->GetForwardVector();
-	App->camera->Position.Set(position.x - fvec.x, position.y - fvec.y, position.z - fvec.z);*/
-
+	
 	char title[80];
 	sprintf_s(title, "%.1f Km/h", vehicle->GetKmh());
 	App->window->SetTitle(title);

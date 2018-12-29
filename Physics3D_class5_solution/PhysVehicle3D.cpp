@@ -143,6 +143,6 @@ vec3 PhysVehicle3D::GetForwardVector() const
 	btVector3 direction;
 	vehicle->getForwardVector();
 	vec3 ret;
-	ret.Set(direction.getX(), 10+direction.getY(), 20+direction.getZ());
+	ret.Set(direction.getX(), direction.getY(), direction.getZ());
 	return ret;
 }

@@ -8,6 +8,7 @@ struct PhysVehicle3D;
 #define MAX_ACCELERATION 1500.0f
 #define TURN_DEGREES 20.0f * DEGTORAD
 #define BRAKE_POWER 1500.0f
+#define IDENTITY mat4x4(1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f)
 
 class ModulePlayer : public Module
 {
@@ -25,8 +26,8 @@ public:
 	float turn;
 	float acceleration;
 	float brake;
-	vec3 position = { 0,0,0 };
-	vec3 startPos = { 0,0,0 };
+	vec3 position = { 0.0f,0.0f,0.0f };
+	vec3 startPos = { 0.0f,30.0f,-3.0f };
 	vec3 currentPos;
 	
 

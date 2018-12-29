@@ -351,3 +351,8 @@ Physics3D_class5_solution/Debug/3D Physi.746CC4C3.tlog/CL.read.1.tlog
 Physics3D_class5_solution/.vs/3D Physics/v15/ipch/AutoPCH/65bcb3fe931318b2/APPLICATION.ipch
 Physics3D_class5_solution/.vs/3D Physics/v15/Browse.VC.db
 Physics3D_class5_solution/.vs/3D Physics/v15/.suo
+*.idb
+*.log
+*.pdb
+*.ilk
+*.tlog

@@ -200,9 +200,9 @@ void ModuleSceneIntro::LoadFloor() {
 //	
 //	CreateFloor(FLOOR_SIZE, vec3(x position, y position, z position), color, rotation axis, rotation angle, mass);
 	
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x + FLOOR_SIZE.z), White);
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x), White);
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x - FLOOR_SIZE.z), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x + FLOOR_SIZE.z), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x - FLOOR_SIZE.z), White);
 	CreateFloor(MEDIUM_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x - FLOOR_SIZE.z * 2), White);
 	CreateFloor(MEDIUM_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x - FLOOR_SIZE.z * 3), White);
 	CreateFloor(MEDIUM_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x - FLOOR_SIZE.z * 4), White);

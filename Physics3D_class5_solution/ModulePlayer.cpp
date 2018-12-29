@@ -107,7 +107,7 @@ bool ModulePlayer::Start()
 	car.wheels[3].steering = true;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(0, 0, -3);
+	vehicle->SetPos(0, 30, -3);
 	
 	return true;
 }
@@ -159,11 +159,9 @@ update_status ModulePlayer::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
 	{
-		
-		//vehicle->body->setAngularVelocity(btVector3(0, 0, 0));
-		//vehicle->body->setLinearVelocity(btVector3(0, 0, 0));
 		IdentityMatrix = IDENTITY;
 		vehicle->SetTransform(IdentityMatrix.M);
+		vehicle->SetPos(startPos.x, startPos.y, startPos.z);
 	}
 
 	vehicle->ApplyEngineForce(acceleration);

@@ -125,7 +125,8 @@ update_status ModulePlayer::Update(float dt)
 {
 	vec3 position = vehicle->GetPos();
 	vec3 fvec = vehicle->GetForwardVector();
-	App->camera->Position.Set(position.x, 10+position.y , 20+position.z);
+	// To change relative camera position.
+	App->camera->Position.Set(position.x, 10+position.y , -20+position.z);
 	App->camera->LookAt(vehicle->GetPos());
 
 	turn = acceleration = brake = 0.0f;

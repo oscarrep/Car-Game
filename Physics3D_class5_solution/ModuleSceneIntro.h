@@ -4,7 +4,8 @@
 #include "Globals.h"
 #include "Primitive.h"
 
-#define MAX_SIZE 128
+//#define MAX_SIZE 128
+#define FLOOR_SIZE vec3(10,2,5)
 
 struct PhysBody3D;
 struct PhysMotor3D;
@@ -19,9 +20,13 @@ public:
 	update_status Update(float dt);
 	bool CleanUp();
 
-	void LoadTrack(int* trackx, int postrack);
-	void FloorTypes(vec3 scale, int posX, int posZ, int cir);
-	void Paint();
+	//void LoadTrack(int* trackx, int postrack);
+	//void FloorTypes(vec3 scale, int posX, int posZ, int cir);
+	//void Paint();
+
+	void CreateFloor(vec3 size = { 1.0f,1.0f,1.0f }, vec3 pos = { 0.0f, 0.0f, 0.0f }, Color color = White, vec3 u = (0.0f, 0.0f, 0.0f), float angle = 0.0f, float mass = 0.0f);
+	void LoadFloor();
+	void PaintFloor();
 
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
@@ -33,11 +38,11 @@ public:
 	PhysBody3D* pb_snake2[MAX_SNAKE];
 	Sphere s_snake2[MAX_SNAKE];
 	*/
-	p2DynArray<PhysBody3D*> pb_cubes;
+	/*p2DynArray<PhysBody3D*> pb_cubes;
 	p2DynArray<Cube>s_cubes;
 
 	p2DynArray<PhysBody3D*> pb_limits;
-	p2DynArray<Cube>s_limits;
+	p2DynArray<Cube>s_limits;*/
 
 	
 
@@ -53,7 +58,15 @@ public:
 	PhysMotor3D* left_wheel;
 	PhysMotor3D* right_wheel;
 
+	// primitives
+	p2List<Cube> cubes;
+
+	//Track Paramenters
+	vec3 zeros = { 0.0f,0.0f,0.0f };
+	vec3 Xaxis = { 1.0f,0.0f,0.0f }, 
+		 Yaxis = { 0.0f,1.0f,0.0f }, 
+		 Zaxis = { 0.0f,0.0f,1.0f };
 	bool win = true;
-	int track[MAX_SIZE];
+	//int track[MAX_SIZE];
 
 };

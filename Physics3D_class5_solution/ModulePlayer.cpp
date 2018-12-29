@@ -68,7 +68,7 @@ bool ModulePlayer::Start()
 	car.wheels[0].front = true;
 	car.wheels[0].drive = true;
 	car.wheels[0].brake = false;
-	car.wheels[0].steering = false;
+	car.wheels[0].steering = true;
 
 	// FRONT-RIGHT ------------------------
 	car.wheels[1].connection.Set(-half_width + 0.3f * wheel_width, connection_height, half_length - wheel_radius);
@@ -80,7 +80,7 @@ bool ModulePlayer::Start()
 	car.wheels[1].front = true;
 	car.wheels[1].drive = true;
 	car.wheels[1].brake = false;
-	car.wheels[1].steering = false;
+	car.wheels[1].steering = true;
 
 	// REAR-LEFT ------------------------
 	car.wheels[2].connection.Set(half_width - 0.3f * wheel_width, connection_height, -half_length + wheel_radius);
@@ -92,7 +92,7 @@ bool ModulePlayer::Start()
 	car.wheels[2].front = false;
 	car.wheels[2].drive = false;
 	car.wheels[2].brake = true;
-	car.wheels[2].steering = true;
+	car.wheels[2].steering = false;
 
 	// REAR-RIGHT ------------------------
 	car.wheels[3].connection.Set(-half_width + 0.3f * wheel_width, connection_height, -half_length + wheel_radius);
@@ -104,10 +104,10 @@ bool ModulePlayer::Start()
 	car.wheels[3].front = false;
 	car.wheels[3].drive = false;
 	car.wheels[3].brake = true;
-	car.wheels[3].steering = true;
+	car.wheels[3].steering = false;
 
 	vehicle = App->physics->AddVehicle(car);
-	vehicle->SetPos(0, 30, -3);
+	vehicle->SetPos(0, 30, 0);
 	
 	return true;
 }
@@ -133,12 +133,12 @@ update_status ModulePlayer::Update(float dt)
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
 	{
-		acceleration = -MAX_ACCELERATION;
+		acceleration = MAX_ACCELERATION;
 	}
 
 	if (App->input->GetKey(SDL_SCANCODE_DOWN) == KEY_REPEAT)
 	{
-		acceleration = MAX_ACCELERATION;
+		acceleration = -MAX_ACCELERATION;
 	}
 
 	if(App->input->GetKey(SDL_SCANCODE_LEFT) == KEY_REPEAT)

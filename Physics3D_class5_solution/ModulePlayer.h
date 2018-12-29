@@ -27,7 +27,7 @@ public:
 	float acceleration;
 	float brake;
 	vec3 position = { 0.0f,0.0f,0.0f };
-	vec3 startPos = { 0.0f,30.0f,-3.0f };
+	vec3 startPos = { 0.0f,30.0f,0.0f };
 	vec3 currentPos;
 	
 

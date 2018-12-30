@@ -23,7 +23,7 @@ bool ModuleSceneIntro::Start()
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
 	App->audio->PlayMusic("Audio/Bush-Week.ogg");
-	App->audio->LoadFx("Audio/hit.ogg");
+	crash = App->audio->LoadFx("Audio/Glass_Break.wav");
 	LoadFloor();
 
 	return ret;
@@ -33,7 +33,7 @@ bool ModuleSceneIntro::Start()
 bool ModuleSceneIntro::CleanUp()
 {
 	LOG("Unloading Intro scene");
-
+	
 	return true;
 }
 
@@ -199,11 +199,13 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 += 3;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num,collision);
 				}
 				else {
 					points2 += 3;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
@@ -212,11 +214,13 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 += 2;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				else {
 					points2 += 2;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
@@ -225,11 +229,13 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 += 1;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				else {
 					points2 += 1;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
@@ -238,11 +244,13 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 += 2;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				else {
 					points2 += 2;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
@@ -251,11 +259,13 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 += 3;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				else {
 					points2 += 3;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
@@ -264,11 +274,13 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 -= 1;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				else {
 					points2 -= 1;
 					collision = true;
+					App->audio->PlayFx(crash);
 					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;

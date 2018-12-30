@@ -71,6 +71,7 @@ public:
 	uint turn_num=1;
 	uint points1=0;
 	uint points2=0;
+	uint crash;
 	bool collision = false;
 
 

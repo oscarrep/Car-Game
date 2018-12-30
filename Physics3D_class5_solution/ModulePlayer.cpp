@@ -190,7 +190,6 @@ update_status ModulePlayer::Update(float dt)
 		IdentityMatrix = IDENTITY;
 		vehicle->SetTransform(IdentityMatrix.M);
 		vehicle->SetPos(startPos.x, startPos.y, startPos.z);
-		
 	}
 		
 	vehicle->ApplyEngineForce(acceleration);
@@ -212,7 +211,7 @@ void ModulePlayer::Restart(int turn_num, bool collision) {
 				
 		collision = false;
 	}
-	if (turn_num == 7) {
+	/*if (turn_num == 7) {
 		vehicle->SetPos(50, 0, 50);
 		if (pointsp1 > pointsp2) {
 			sprintf_s(title, "Player 1 Wins! Press 8 to restart or ESC to quit. Player 1 Points: %i  --- Player 2 Points: %i", App->scene_intro->points1, App->scene_intro->points2);
@@ -220,7 +219,7 @@ void ModulePlayer::Restart(int turn_num, bool collision) {
 		else if (pointsp1 < pointsp2) {
 			sprintf_s(title, "Player 2 Wins! Press 8 to restart or ESC to quit. Player 2 Points: %i  --- Player 1 Points: %i", App->scene_intro->points2, App->scene_intro->points1);
 		}
-	}
+	}*/
 
 }
 

@@ -60,7 +60,7 @@ void ModuleSceneIntro::LoadFloor() {
 
 
 	//CreateFloor(DEBUG_FLOOR, vec3(zeros.x, zeros.y, zeros.x - FLOOR.z));
-	CreateFloor(BaseFloor, vec3(zeros.x, zeros.y, zeros.x), Green);
+	//CreateFloor(BaseFloor, vec3(zeros.x, zeros.y, zeros.x), Green);
 
 	//MAIN RAMP
 	CreateFloor(WIDE_FLOOR, vec3(zeros.x, zeros.y + 200.0f, zeros.x - FLOOR.z), LightBlue);
@@ -138,59 +138,61 @@ void ModuleSceneIntro::LoadFloor() {
 	CreateFloor(WIDE_FLOOR, vec3(zeros.x, zeros.y + 10.05f, zeros.x + FLOOR.z * 55 - 46.75f), LightBlue, Xaxis, -20.0f); //ramp
 
 
-	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z), Green);
-	CreateFloor(Box, vec3(zeros.x + 25.0f, zeros.y, zeros.z + 25.0f), Green, Yaxis, 90.0f);
-	CreateFloor(Box, vec3(zeros.x + 75.0f, zeros.y, zeros.z + 25.0f), Green, Yaxis, 90.0f);
-	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z + 50.0f), Green);
-	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z + 25.0f), Green, Xaxis, 90.0f);
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y +1500, zeros.z), Green);
+	CreateFloor(Box, vec3(zeros.x + 25.0f, zeros.y +1500, zeros.z + 25.0f), Green, Yaxis, 90.0f);
+	CreateFloor(Box, vec3(zeros.x + 75.0f, zeros.y +1500, zeros.z + 25.0f), Green, Yaxis, 90.0f);
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y +1500, zeros.z + 50.0f), Green);
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y +1500, zeros.z + 25.0f), Green, Xaxis, 90.0f);
 
-
-	//	CreateFloor(MEDIUM_FLOOR, vec3(zeros.x, zeros.y + 32.65f, zeros.x - FLOOR.z * 4+0.25f), LightBlue);
 	//target
 	//target floor
 	Cube target1 = { 100,2,20 };
-	target1.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 46);
+	target1.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 42);
 	target1_s = App->physics->AddBody(target1, 0.0f);
 	target1_s->SetAsSensor(true);
 	target1_s->GetTransform(&target1.transform);
 	target1_s->collision_listeners.add(this);
 
 	Cube target2 = { 100,2,20 };
-	target2.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 47);
+	target2.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 43);
 	target2_s = App->physics->AddBody(target2, 0.0f);
 	target2_s->SetAsSensor(true);
 	target2_s->GetTransform(&target2.transform);
 	target2_s->collision_listeners.add(this);
 
 	Cube target3 = { 100,2,20 };
-	target3.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 48);
+	target3.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 44);
 	target3_s = App->physics->AddBody(target3, 0.0f);
 	target3_s->SetAsSensor(true);
 	target3_s->GetTransform(&target3.transform);
 	target3_s->collision_listeners.add(this);
 
 	Cube target4 = { 100,2,20 };
-	target4.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 49);
+	target4.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 45);
 	target4_s = App->physics->AddBody(target4, 0.0f);
 	target4_s->SetAsSensor(true);
 	target4_s->GetTransform(&target4.transform);
 	target4_s->collision_listeners.add(this);
 
 	Cube target5 = { 100,2,20 };
-	target5.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 50);
+	target5.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 46);
 	target5_s = App->physics->AddBody(target5, 0.0f);
 	target5_s->SetAsSensor(true);
 	target5_s->GetTransform(&target5.transform);
 	target5_s->collision_listeners.add(this);
 
-	CreateFloor(TARGET1, vec3(zeros.x, zeros.y, zeros.x + TARGET1.z * 46), Red);
-	CreateFloor(TARGET2, vec3(zeros.x, zeros.y, zeros.x + TARGET2.z * 47), Blue);
-	CreateFloor(TARGET3, vec3(zeros.x, zeros.y, zeros.x + TARGET3.z * 48), Green);
-	CreateFloor(TARGET4, vec3(zeros.x, zeros.y, zeros.x + TARGET4.z * 49), Yellow);
-	CreateFloor(TARGET5, vec3(zeros.x, zeros.y, zeros.x + TARGET5.z * 50), DarkGrey);
+	Cube floor_targ = { 2000, 2, 2000 };
+	floor_targ.SetPos(zeros.x, zeros.y, zeros.z);
+	floor_s = App->physics->AddBody(floor_targ, 0.0f);
+	floor_s->SetAsSensor(true);
+	floor_s->GetTransform(&floor_targ.transform);
+	floor_s->collision_listeners.add(this);
 
-	//	CreateFloor(MEDIUM_FLOOR, vec3(zeros.x, zeros.y + 32.65f, zeros.x - FLOOR.z * 4+0.25f), LightBlue);
-
+	CreateFloor(TARGET1, vec3(zeros.x, zeros.y, zeros.x + TARGET1.z * 42), Red);
+	CreateFloor(TARGET2, vec3(zeros.x, zeros.y, zeros.x + TARGET2.z * 43), Blue);
+	CreateFloor(TARGET3, vec3(zeros.x, zeros.y, zeros.x + TARGET3.z * 44), Green);
+	CreateFloor(TARGET4, vec3(zeros.x, zeros.y, zeros.x + TARGET4.z * 45), Yellow);
+	CreateFloor(TARGET5, vec3(zeros.x, zeros.y, zeros.x + TARGET5.z * 46), DarkGrey);
 
 }
 

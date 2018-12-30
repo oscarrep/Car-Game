@@ -55,9 +55,9 @@ bool ModuleSceneIntro::CleanUp()
 // Update
 update_status ModuleSceneIntro::Update(float dt)
 {
-	Plane p(0, 1, 0, 0);
-	p.axis = true;
-	p.Render();
+	//Plane p(0, 1, 0, 0);
+	//p.axis = true;
+	//p.Render();
 
 	PaintFloor();
 
@@ -201,8 +201,9 @@ void ModuleSceneIntro::LoadFloor() {
 //	CreateFloor(FLOOR_SIZE, vec3(x position, y position, z position), color, rotation axis, rotation angle, mass);
 	
 //	CreateFloor(DEBUG_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x - FLOOR_SIZE.z));
-	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), Green);
+	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), Black);
 
+	//ramp
 	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 70.0f, zeros.x - FLOOR_SIZE.z), White);
 	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 70.0f, zeros.x), White);
 	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 70.0f, zeros.x + FLOOR_SIZE.z), White);
@@ -229,6 +230,58 @@ void ModuleSceneIntro::LoadFloor() {
 	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 6.35f, zeros.x + FLOOR_SIZE.z * 21 - 15.0f), White);
 	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 8.15f, zeros.x + FLOOR_SIZE.z * 22 - 15.0f), White, Xaxis, -20.0f); //ramp
 	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 11.55f, zeros.x + FLOOR_SIZE.z * 23 - 16.0f), White, Xaxis, -20.0f); //ramp
+	//target
+	//target floor
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 19), Red);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 20), Blue);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 21), Green);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 22), Yellow);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 23), Black);
+
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x+20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 19), Red);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x+20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 20), Blue);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x+20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 21), Green);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x+20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 22), Yellow);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x+20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 23), Black);
+
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 19), Red);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 20), Blue);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 21), Green);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 22), Yellow);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 20.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 23), Black);
+
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x + 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 19), Red);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x + 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 20), Blue);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x + 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 21), Green);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x + 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 22), Yellow);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x + 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 23), Black);
+
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 19), Red);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 20), Blue);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 21), Green);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 22), Yellow);
+	CreateFloor(LARGE_FLOOR_SIZE, vec3(zeros.x - 40.0f, zeros.y, zeros.x + LARGE_FLOOR_SIZE.z * 23), Black);
+	
+	//Target walls
+	/*CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 35 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 36 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 37 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 38 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 39 - 25.0f), White);
+
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 35 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 36 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 37 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 38 - 25.0f), White);
+	CreateFloor(WALL_SIZE_STR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_STR.z * 39 - 25.0f), White);
+
+	CreateFloor(WALL_SIZE_HOR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_HOR.z * 35 - 25.0f), White);
+	CreateFloor(WALL_SIZE_HOR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_HOR.z * 36 - 25.0f), White);
+	CreateFloor(WALL_SIZE_HOR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_HOR.z * 37 - 25.0f), White);
+	CreateFloor(WALL_SIZE_HOR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_HOR.z * 38 - 25.0f), White);
+	CreateFloor(WALL_SIZE_HOR, vec3(zeros.x - 20.0f, zeros.y, zeros.x + WALL_SIZE_HOR.z * 39 - 25.0f), White);
+	*/
+	
 
 
 //	CreateFloor(MEDIUM_FLOOR_SIZE, vec3(zeros.x, zeros.y + 32.65f, zeros.x - FLOOR_SIZE.z * 4+0.25f), White);

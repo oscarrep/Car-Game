@@ -15,6 +15,7 @@ public:
 
 	bool Init();
 	bool CleanUp();
+	bool Update();
 
 	// Play a music file
 	bool PlayMusic(const char* path, float fade_time = DEFAULT_MUSIC_FADE_TIME);
@@ -29,6 +30,9 @@ private:
 
 	Mix_Music*			music;
 	p2List<Mix_Chunk*>	fx;
+
+public:
+	float volume;
 };
 
 #endif // __ModuleAudio_H__

@@ -202,12 +202,12 @@ update_status ModulePlayer::Update(float dt)
 	pointsp2 = App->scene_intro->points2;
 	turn_number = App->scene_intro->turn_num;
 
-	if (turn_number <= 6) {
+	if (turn_number < 7) {
 		sprintf_s(title, "%.1f Km/h --- Player 1 Points: %i --- Player 2 Points: %i --- Turn: %i ", vehicle->GetKmh(), pointsp1, pointsp2, turn_number);
 		App->window->SetTitle(title);
 	}
 
-	else if (turn_number  == 7) {
+	else if (turn_number  >= 7) {
 		if (pointsp1 > pointsp2) {
 			sprintf_s(title, "Player 1 Wins! Player 1 Points: %i  --- Player 2 Points: %i - Press R or ESC", pointsp1, pointsp2);
 			App->window->SetTitle(title);
@@ -226,7 +226,7 @@ update_status ModulePlayer::Update(float dt)
 }
 
 void ModulePlayer::Restart(int turn_num, bool collision) {
-	if (turn_num <= 6) {
+	if (turn_num < 6) {
 		IdentityMatrix = IDENTITY;
 		vehicle->SetTransform(IdentityMatrix.M);
 		vehicle->SetPos(startPos.x, startPos.y, startPos.z);
@@ -235,7 +235,7 @@ void ModulePlayer::Restart(int turn_num, bool collision) {
 		collision = false;
 	}
 
-	if (turn_num == 7) {
+	if (turn_num >= 6) {
 		IdentityMatrix = IDENTITY;
 		vehicle->SetTransform(IdentityMatrix.M);
 		vehicle->SetPos(50, 1510, 50);

@@ -22,7 +22,8 @@ bool ModuleSceneIntro::Start()
 	
 	App->camera->Move(vec3(1.0f, 1.0f, 0.0f));
 	App->camera->LookAt(vec3(0, 0, 0));
-	
+	App->audio->PlayMusic("Audio/Bush-Week.ogg");
+	App->audio->LoadFx("Audio/hit.ogg");
 	LoadFloor();
 
 	return ret;
@@ -98,6 +99,13 @@ void ModuleSceneIntro::LoadFloor() {
 	CreateFloor(WIDE_FLOOR, vec3(zeros.x, zeros.y + 7.35f, zeros.x + FLOOR.z * 30 - 21.75f), White, Xaxis, -20.0f); //ramp
 	CreateFloor(WIDE_FLOOR, vec3(zeros.x, zeros.y + 10.65f, zeros.x + FLOOR.z * 31 - 22.75f), White, Xaxis, -20.0f); //ramp
 
+
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z), Green);
+	CreateFloor(Box, vec3(zeros.x + 25.0f, zeros.y, zeros.z + 25.0f), Green, Yaxis, 90.0f);
+	CreateFloor(Box, vec3(zeros.x + 75.0f, zeros.y, zeros.z + 25.0f), Green, Yaxis, 90.0f);
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z + 50.0f), Green);
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z + 25.0f), Green, Xaxis, 90.0f);
+	
 
 //	CreateFloor(MEDIUM_FLOOR, vec3(zeros.x, zeros.y + 32.65f, zeros.x - FLOOR.z * 4+0.25f), White);
 	//target

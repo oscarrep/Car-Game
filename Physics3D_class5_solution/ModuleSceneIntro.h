@@ -39,7 +39,11 @@ public:
 	void OnCollision(PhysBody3D* body1, PhysBody3D* body2);
 
 public:
-	PhysBody3D* target;
+	PhysBody3D* target1_s;
+	PhysBody3D* target2_s;
+	PhysBody3D* target3_s;
+	PhysBody3D* target4_s;
+	PhysBody3D* target5_s;
 
 	PhysBody3D* pb_chassis;
 	Cube p_chassis;
@@ -62,6 +66,9 @@ public:
 		 Yaxis = { 0.0f,1.0f,0.0f }, 
 		 Zaxis = { 0.0f,0.0f,1.0f };
 	bool win = true;
+	int turn_num;
+	int* points1=0;
+	int* points2=0;
 
 
 };

@@ -1,4 +1,2 @@
-﻿  ModulePlayer.cpp
-c:\users\adell\documents\github\car-game\physics3d_class5_solution\moduleplayer.cpp(176): warning C4477: 'sprintf_s' : format string '%i' requires an argument of type 'int', but variadic argument 2 has type 'int *'
-c:\users\adell\documents\github\car-game\physics3d_class5_solution\moduleplayer.cpp(176): warning C4477: 'sprintf_s' : format string '%i' requires an argument of type 'int', but variadic argument 3 has type 'int *'
+﻿  ModuleSceneIntro.cpp
   3D Physics.vcxproj -> C:\Users\adell\Documents\GitHub\Car-Game\Physics3D_class5_solution\Debug\3D Physics - class5.exe

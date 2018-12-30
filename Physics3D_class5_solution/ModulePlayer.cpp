@@ -164,6 +164,7 @@ update_status ModulePlayer::Update(float dt)
 		IdentityMatrix = IDENTITY;
 		vehicle->SetTransform(IdentityMatrix.M);
 		vehicle->SetPos(startPos.x, startPos.y, startPos.z);
+		
 	}
 
 	vehicle->ApplyEngineForce(acceleration);

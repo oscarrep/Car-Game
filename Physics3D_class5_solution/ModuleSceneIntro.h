@@ -66,9 +66,9 @@ public:
 		 Yaxis = { 0.0f,1.0f,0.0f }, 
 		 Zaxis = { 0.0f,0.0f,1.0f };
 	bool win = true;
-	int turn_num;
-	int* points1=0;
-	int* points2=0;
+	int turn_num=0;
+	int points1=0;
+	int points2=0;
 
 
 };

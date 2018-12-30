@@ -200,13 +200,37 @@ void ModuleSceneIntro::LoadFloor() {
 //	
 //	CreateFloor(FLOOR_SIZE, vec3(x position, y position, z position), color, rotation axis, rotation angle, mass);
 	
-	CreateFloor(DEBUG_FLOOR_SIZE, vec3(zeros.x, zeros.y + 25.0f, zeros.x - FLOOR_SIZE.z));
+//	CreateFloor(DEBUG_FLOOR_SIZE, vec3(zeros.x, zeros.y, zeros.x - FLOOR_SIZE.z));
+	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), Green);
 
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x - FLOOR_SIZE.z), White);
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x), White);
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x + FLOOR_SIZE.z), White);
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x + FLOOR_SIZE.z * 2 + 0.25f), White, Xaxis, 10.0f);  //ramp
-	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 30.0f, zeros.x + FLOOR_SIZE.z * 3 + 0.25f), White, Xaxis, 20.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 70.0f, zeros.x - FLOOR_SIZE.z), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 70.0f, zeros.x), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 70.0f, zeros.x + FLOOR_SIZE.z), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 69.15f, zeros.x + FLOOR_SIZE.z * 2 - 0.25f), White, Xaxis, 10.0f);  //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 66.6f, zeros.x + FLOOR_SIZE.z * 3 - 0.75f), White, Xaxis, 20.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 62.95f, zeros.x + FLOOR_SIZE.z * 4 - 2.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 58.75f, zeros.x + FLOOR_SIZE.z * 5 - 3.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 54.55f, zeros.x + FLOOR_SIZE.z * 6 - 4.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 50.35f, zeros.x + FLOOR_SIZE.z * 7 - 5.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 46.15f, zeros.x + FLOOR_SIZE.z * 8 - 6.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 41.95f, zeros.x + FLOOR_SIZE.z * 9 - 7.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 37.75f, zeros.x + FLOOR_SIZE.z * 10 - 8.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 33.55f, zeros.x + FLOOR_SIZE.z * 11 - 9.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 29.35f, zeros.x + FLOOR_SIZE.z * 12 - 10.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 25.15f, zeros.x + FLOOR_SIZE.z * 13 - 11.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 20.95f, zeros.x + FLOOR_SIZE.z * 14 - 12.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 16.75f, zeros.x + FLOOR_SIZE.z * 15 - 13.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 12.55f, zeros.x + FLOOR_SIZE.z * 16 - 14.0f), White, Xaxis, 25.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 9.0f, zeros.x + FLOOR_SIZE.z * 17 - 15.25f), White, Xaxis, 20.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 6.35f, zeros.x + FLOOR_SIZE.z * 18 - 15.75f), White, Xaxis, 10.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 6.35f, zeros.x + FLOOR_SIZE.z * 18 - 15.0f), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 6.35f, zeros.x + FLOOR_SIZE.z * 19 - 15.0f), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 6.35f, zeros.x + FLOOR_SIZE.z * 20 - 15.0f), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 6.35f, zeros.x + FLOOR_SIZE.z * 21 - 15.0f), White);
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 8.15f, zeros.x + FLOOR_SIZE.z * 22 - 15.0f), White, Xaxis, -20.0f); //ramp
+	CreateFloor(WIDE_FLOOR_SIZE, vec3(zeros.x, zeros.y + 11.55f, zeros.x + FLOOR_SIZE.z * 23 - 16.0f), White, Xaxis, -20.0f); //ramp
+
+
 //	CreateFloor(MEDIUM_FLOOR_SIZE, vec3(zeros.x, zeros.y + 32.65f, zeros.x - FLOOR_SIZE.z * 4+0.25f), White);
 
 

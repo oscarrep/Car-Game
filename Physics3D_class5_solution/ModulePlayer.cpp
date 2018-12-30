@@ -25,7 +25,7 @@ bool ModulePlayer::Start()
 	car.chassis_size.Set(3.0f, 1.0f, 6.0f);
 	car.chassis_offset.Set(0.0f, 0.7f, 0.0f);
 	
-	car.cabin_size.Set(2.9f, 1.5f, 4.0f);
+	car.cabin_size.Set(2.9f, 1.5f, 3.0f);
 	car.cabin_offset.Set(0.0f, 1.2f, -0.5f);
 
 	car.L_light_size.Set(0.4f, 0.2f, 6.05f);
@@ -34,6 +34,33 @@ bool ModulePlayer::Start()
 	car.R_light_size.Set(0.4f, 0.2f, 6.05f);
 	car.R_light_offset.Set(-1.0f, 0.9f, 0.0f);
 	
+	car.L_spoiler_foot_size.Set(0.2f, 1.0f, 0.4f);
+	car.L_spoiler_foot_offset.Set(-1.0f, 1.3f, -2.7f);
+
+	car.R_spoiler_foot_size.Set(0.2f, 1.0f, 0.4f);
+	car.R_spoiler_foot_offset.Set(1.0f, 1.3f, -2.7f);
+
+	car.spoiler_size.Set(3.0f, 0.2f, 1.0f);
+	car.spoiler_offset.Set(0.0f, 1.9f, -3.0f);
+
+	car.front_size.Set(3.0f, 0.2f, 1.0f);
+	car.front_offset.Set(0.0f, -0.4f, 2.9f);
+
+	car.front2_size.Set(3.0f, 0.5f, 0.2f);
+	car.front2_offset.Set(0.0f, 0.0f, 3.0f);
+
+	car.back_size.Set(3.0f, 0.5f, 0.2f);
+	car.back_offset.Set(0.0f, 0.0f, -2.9f);
+
+	car.L_size.Set(0.2f, 0.5f, 3.0f);
+	car.L_offset.Set(-1.5f, 0.0f, 0.0f);
+
+	car.R_size.Set(0.2f, 0.5f, 3.0f);
+	car.R_offset.Set(1.5f, 0.0f, 0.0f);
+
+	car.neon_size.Set(3.2f, 0.1f, 6.1f);
+	car.neon_offset.Set(0.0f, -0.25f, 0.0f);
+
 	car.mass = 500.0f;
 	car.suspensionStiffness = 15.88f;
 	car.suspensionCompression = 0.83f;

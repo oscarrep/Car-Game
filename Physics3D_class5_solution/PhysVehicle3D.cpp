@@ -75,7 +75,7 @@ void PhysVehicle3D::Render()
 	L_light.transform.M[13] += LlightOffset.getY();
 	L_light.transform.M[14] += LlightOffset.getZ();
 
-	L_light.color = Red;
+	L_light.color = Yellow;
 
 	//---RIGHT
 	Cube R_light(info.R_light_size.x, info.R_light_size.y, info.R_light_size.z);
@@ -87,13 +87,129 @@ void PhysVehicle3D::Render()
 	R_light.transform.M[13] += RlightOffset.getY();
 	R_light.transform.M[14] += RlightOffset.getZ();
 
-	R_light.color = Red;
+	R_light.color = Yellow;
 
+	//---SPOILER L FOOT
+	Cube L_foot(info.L_spoiler_foot_size.x, info.L_spoiler_foot_size.y, info.L_spoiler_foot_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&L_foot.transform);
+	btVector3 LfootOffset(info.L_spoiler_foot_offset.x, info.L_spoiler_foot_offset.y, info.L_spoiler_foot_offset.z);
+	LfootOffset = LfootOffset.rotate(q.getAxis(), q.getAngle());
+
+	L_foot.transform.M[12] += LfootOffset.getX();
+	L_foot.transform.M[13] += LfootOffset.getY();
+	L_foot.transform.M[14] += LfootOffset.getZ();
+
+	L_foot.color = Purple;
+
+	//---SPOILER R FOOT
+	Cube R_foot(info.R_spoiler_foot_size.x, info.R_spoiler_foot_size.y, info.R_spoiler_foot_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&R_foot.transform);
+	btVector3 RfootOffset(info.R_spoiler_foot_offset.x, info.R_spoiler_foot_offset.y, info.R_spoiler_foot_offset.z);
+	RfootOffset = RfootOffset.rotate(q.getAxis(), q.getAngle());
+
+	R_foot.transform.M[12] += RfootOffset.getX();
+	R_foot.transform.M[13] += RfootOffset.getY();
+	R_foot.transform.M[14] += RfootOffset.getZ();
+
+	R_foot.color = Purple;
+
+	//---SPOILER
+	Cube spoiler(info.spoiler_size.x, info.spoiler_size.y, info.spoiler_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&spoiler.transform);
+	btVector3 spoilerOffset(info.spoiler_offset.x, info.spoiler_offset.y, info.spoiler_offset.z);
+	spoilerOffset = spoilerOffset.rotate(q.getAxis(), q.getAngle());
+
+	spoiler.transform.M[12] += spoilerOffset.getX();
+	spoiler.transform.M[13] += spoilerOffset.getY();
+	spoiler.transform.M[14] += spoilerOffset.getZ();
+
+	spoiler.color = Pink;
+
+	//---FRONT
+	Cube front(info.front_size.x, info.front_size.y, info.front_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&front.transform);
+	btVector3 frontOffset(info.front_offset.x, info.front_offset.y, info.front_offset.z);
+	frontOffset = frontOffset.rotate(q.getAxis(), q.getAngle());
+
+	front.transform.M[12] += frontOffset.getX();
+	front.transform.M[13] += frontOffset.getY();
+	front.transform.M[14] += frontOffset.getZ();
+
+	front.color = Blue;
+
+	//---FRONT2
+	Cube front2(info.front2_size.x, info.front2_size.y, info.front2_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&front2.transform);
+	btVector3 front2Offset(info.front2_offset.x, info.front2_offset.y, info.front2_offset.z);
+	front2Offset = front2Offset.rotate(q.getAxis(), q.getAngle());
+
+	front2.transform.M[12] += front2Offset.getX();
+	front2.transform.M[13] += front2Offset.getY();
+	front2.transform.M[14] += front2Offset.getZ();
+
+	front2.color = Blue;
+
+	//---BACK
+	Cube back(info.back_size.x, info.back_size.y, info.back_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&back.transform);
+	btVector3 backOffset(info.back_offset.x, info.back_offset.y, info.back_offset.z);
+	backOffset = backOffset.rotate(q.getAxis(), q.getAngle());
+
+	back.transform.M[12] += backOffset.getX();
+	back.transform.M[13] += backOffset.getY();
+	back.transform.M[14] += backOffset.getZ();
+
+	back.color = Blue;
+
+	//---L
+	Cube L(info.L_size.x, info.L_size.y, info.L_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&L.transform);
+	btVector3 LOffset(info.L_offset.x, info.L_offset.y, info.L_offset.z);
+	LOffset = LOffset.rotate(q.getAxis(), q.getAngle());
+
+	L.transform.M[12] += LOffset.getX();
+	L.transform.M[13] += LOffset.getY();
+	L.transform.M[14] += LOffset.getZ();
+
+	L.color = Blue;
+
+	//---R
+	Cube R(info.R_size.x, info.R_size.y, info.R_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&R.transform);
+	btVector3 ROffset(info.R_offset.x, info.R_offset.y, info.R_offset.z);
+	ROffset = ROffset.rotate(q.getAxis(), q.getAngle());
+
+	R.transform.M[12] += ROffset.getX();
+	R.transform.M[13] += ROffset.getY();
+	R.transform.M[14] += ROffset.getZ();
+
+	R.color = Blue;
+
+	//---NEON
+	Cube neon(info.neon_size.x, info.neon_size.y, info.neon_size.z);
+	vehicle->getChassisWorldTransform().getOpenGLMatrix(&neon.transform);
+	btVector3 neonOffset(info.neon_offset.x, info.neon_offset.y, info.neon_offset.z);
+	neonOffset = neonOffset.rotate(q.getAxis(), q.getAngle());
+
+	neon.transform.M[12] += neonOffset.getX();
+	neon.transform.M[13] += neonOffset.getY();
+	neon.transform.M[14] += neonOffset.getZ();
+
+	neon.color = Pink;
 
 	chassis.Render();
 	cabin.Render();
 	L_light.Render();
 	R_light.Render();
+	L_foot.Render();
+	R_foot.Render();
+	spoiler.Render();
+	front.Render();
+	front2.Render();
+	back.Render();
+	L.Render();
+	R.Render();
+	neon.Render();
 }
 
 // ----------------------------------------------------------------------------

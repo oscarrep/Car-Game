@@ -18,7 +18,7 @@
 #define WALL_HOR vec3(4,30,2)
 #define OBSTACLE vec3(5,10,5)
 #define DEBUG_FLOOR vec3(300,2,300)
-#define Floor vec3(1000,1,1000)
+#define Floor vec3(500,1,2000)
 
 struct PhysBody3D;
 struct PhysMotor3D;
@@ -65,10 +65,11 @@ public:
 	vec3 Xaxis = { 1.0f,0.0f,0.0f }, 
 		 Yaxis = { 0.0f,1.0f,0.0f }, 
 		 Zaxis = { 0.0f,0.0f,1.0f };
-	bool win = true;
-	int turn_num=0;
-	int points1=0;
-	int points2=0;
+	bool win = false;
+	uint turn_num=1;
+	uint points1=0;
+	uint points2=0;
+	bool collision = false;
 
 
 };

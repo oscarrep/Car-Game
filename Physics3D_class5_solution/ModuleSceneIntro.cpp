@@ -47,7 +47,7 @@ update_status ModuleSceneIntro::Update(float dt)
 
 void ModuleSceneIntro::LoadFloor() {
 //	
-	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), Black);
+	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), White);
 
 	//ramp
 	CreateFloor(DEBUG_FLOOR, vec3(zeros.x, zeros.y, zeros.x - FLOOR.z));
@@ -102,37 +102,37 @@ void ModuleSceneIntro::LoadFloor() {
 //	CreateFloor(MEDIUM_FLOOR, vec3(zeros.x, zeros.y + 32.65f, zeros.x - FLOOR.z * 4+0.25f), White);
 	//target
 	//target floor
-	Cube target1 = { 100,3,20 };
+	Cube target1 = { 100,2,20 };
 	target1.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 24);
 	target1_s = App->physics->AddBody(target1, 0.0f);
 	target1_s->SetAsSensor(true);
 	target1_s->GetTransform(&target1.transform);
 	target1_s->collision_listeners.add(this);
 
-	Cube target2 = { 100,3,20 };
+	Cube target2 = { 100,2,20 };
 	target2.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 25);
-	target2_s = App->physics->AddBody(target1, 0.0f);
+	target2_s = App->physics->AddBody(target2, 0.0f);
 	target2_s->SetAsSensor(true);
 	target2_s->GetTransform(&target2.transform);
 	target2_s->collision_listeners.add(this);
 
-	Cube target3 = { 100,3,20 };
+	Cube target3 = { 100,2,20 };
 	target3.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 26);
-	target3_s = App->physics->AddBody(target1, 0.0f);
+	target3_s = App->physics->AddBody(target3, 0.0f);
 	target3_s->SetAsSensor(true);
 	target3_s->GetTransform(&target3.transform);
 	target3_s->collision_listeners.add(this);
 
-	Cube target4 = { 100,3,20 };
+	Cube target4 = { 100,2,20 };
 	target4.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 27);
-	target4_s = App->physics->AddBody(target1, 0.0f);
+	target4_s = App->physics->AddBody(target4, 0.0f);
 	target4_s->SetAsSensor(true);
 	target4_s->GetTransform(&target4.transform);
 	target4_s->collision_listeners.add(this);
 
-	Cube target5 = { 100,3,20 };
+	Cube target5 = { 100,2,20 };
 	target5.SetPos(zeros.x, zeros.y, zeros.x + TARGET1.z * 28);
-	target5_s = App->physics->AddBody(target1, 0.0f);
+	target5_s = App->physics->AddBody(target5, 0.0f);
 	target5_s->SetAsSensor(true);
 	target5_s->GetTransform(&target5.transform);
 	target5_s->collision_listeners.add(this);
@@ -180,56 +180,61 @@ void ModuleSceneIntro::PaintFloor() {
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-	for (turn_num; turn_num < 7; turn_num++) {
-		//LOG("Points 1=%i /// 2=%i", points1, points2);
-
-		if (turn_num % 2 != 0) {
-			if (body2 == target1_s) {
+		//if (turn_num == 1 || turn_num == 3 || turn_num == 5) {
+			if ((body2 == target1_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target1_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				points1 += 3;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
-			if (body2 == target2_s) {
+			if ((body2 == target2_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target2_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				points1 += 2;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
-			if (body2 == target3_s) {
+			if ((body2 == target3_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target3_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				points1 += 1;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
-			if (body2 == target4_s) {
+			if ((body2 == target4_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target4_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				points1 += 2;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
-			if (body2 == target5_s) {
+			if ((body2 == target5_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target5_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				points1 += 4;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
-		}
-		if (turn_num % 2 == 0) {
+	/*	}
+		if (turn_num == 2 || turn_num == 4 || turn_num == 6) {
 			if (body2 == target1_s) {
 				points2 += 3;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
 			if (body2 == target2_s) {
 				points2 += 2;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
 			if (body2 == target3_s) {
 				points2 += 1;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
 			if (body2 == target4_s) {
 				points2 += 2;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
 			if (body2 == target5_s) {
 				points2 += 4;
-				turn_num++;
+				collision = true;
+				App->player->Restart(collision);
 			}
-		}
-	}
+		}*/
 	//tunrs 1 3 and 5 are for player 1, 2,4 and 6 for player 2
-	//if (body2 = floor)
 }
 
 void ModuleSceneIntro::CreateFloor(vec3 dim, vec3 pos, Color color,  vec3 u, float angle, float mass)

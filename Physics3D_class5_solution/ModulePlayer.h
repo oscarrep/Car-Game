@@ -19,9 +19,8 @@ public:
 	bool Start();
 	update_status Update(float dt);
 	bool CleanUp();
-	void Restart(bool collision);
+	void Restart(int turn_num, bool collision);
 	void UI(int turn_num);
-
 
 public:
 

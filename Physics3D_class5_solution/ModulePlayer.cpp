@@ -197,59 +197,34 @@ update_status ModulePlayer::Update(float dt)
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
-
 	vehicle->Render();
 	
-	char title[80];
-	sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-	App->window->SetTitle(title);
+	
 
 	return UPDATE_CONTINUE;
 }
 
-void ModulePlayer::Restart(bool collision) {
-	vehicle->SetPos(0, 100, 0);
-	acceleration = 0;
-	collision = false;
-	turn++;
+void ModulePlayer::Restart(int turn_num, bool collision) {
+	if (turn_num <= 6) {
+		vehicle->SetPos(0, 100, 0);
+		acceleration = 0;
+		vehicle->ApplyEngineForce(acceleration);
+		collision = false;
+	}
+
 }
 
 void ModulePlayer::UI(int turn_num) {
-
-	/*char title[80];
-
-	if (turn_num == 1) {
-		sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-		App->window->SetTitle(title);
-	}
-	if (turn_num == 2) {
+	char title[80];
+	if (turn_num <= 6) {
 	sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
 	App->window->SetTitle(title);
-    }
-	if (turn_num == 3) {
-		sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-		App->window->SetTitle(title);
 	}
-	if (turn_num == 4) {
-		sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-		App->window->SetTitle(title);
-	}
-	if (turn_num == 5) {
-		sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-		App->window->SetTitle(title);
-	}
-	if (turn_num == 6) {
-		sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-		App->window->SetTitle(title);
-	}
-	if(turn_num == 7 && )
-	sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-	App->window->SetTitle(title);
+	if (turn_num) {
 
-	sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-	App->window->SetTitle(title);*/
-
+	}
 }
+
 
 
 

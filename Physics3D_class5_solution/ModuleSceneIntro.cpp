@@ -180,60 +180,72 @@ void ModuleSceneIntro::PaintFloor() {
 
 void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 {
-		//if (turn_num == 1 || turn_num == 3 || turn_num == 5) {
 			if ((body2 == target1_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target1_s && body2 == (PhysBody3D*)App->player->vehicle))) {
-				points1 += 3;
-				collision = true;
-				App->player->Restart(collision);
+				if (turn_num % 2 != 0) {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				else {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				turn_num++;
 			}
 			if ((body2 == target2_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target2_s && body2 == (PhysBody3D*)App->player->vehicle))) {
-				points1 += 2;
-				collision = true;
-				App->player->Restart(collision);
+				if (turn_num % 2 != 0) {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				else {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				turn_num++;
 			}
 			if ((body2 == target3_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target3_s && body2 == (PhysBody3D*)App->player->vehicle))) {
-				points1 += 1;
-				collision = true;
-				App->player->Restart(collision);
+				if (turn_num % 2 != 0) {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				else {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				turn_num++;
 			}
 			if ((body2 == target4_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target4_s && body2 == (PhysBody3D*)App->player->vehicle))) {
-				points1 += 2;
-				collision = true;
-				App->player->Restart(collision);
+				if (turn_num % 2 != 0) {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				else {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				turn_num++;
 			}
 			if ((body2 == target5_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target5_s && body2 == (PhysBody3D*)App->player->vehicle))) {
-				points1 += 4;
-				collision = true;
-				App->player->Restart(collision);
+				if (turn_num % 2 != 0) {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				else {
+					points1 += 3;
+					collision = true;
+					App->player->Restart(collision);
+				}
+				turn_num++;
 			}
-	/*	}
-		if (turn_num == 2 || turn_num == 4 || turn_num == 6) {
-			if (body2 == target1_s) {
-				points2 += 3;
-				collision = true;
-				App->player->Restart(collision);
-			}
-			if (body2 == target2_s) {
-				points2 += 2;
-				collision = true;
-				App->player->Restart(collision);
-			}
-			if (body2 == target3_s) {
-				points2 += 1;
-				collision = true;
-				App->player->Restart(collision);
-			}
-			if (body2 == target4_s) {
-				points2 += 2;
-				collision = true;
-				App->player->Restart(collision);
-			}
-			if (body2 == target5_s) {
-				points2 += 4;
-				collision = true;
-				App->player->Restart(collision);
-			}
-		}*/
+	
 	//tunrs 1 3 and 5 are for player 1, 2,4 and 6 for player 2
 }
 

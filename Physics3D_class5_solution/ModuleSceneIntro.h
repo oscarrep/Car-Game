@@ -5,14 +5,14 @@
 #include "Primitive.h"
 
 //#define MAX_SIZE 123
-#define WIDE_FLOOR_SIZE vec3(50,2,10)
-#define MEDIUM_FLOOR_SIZE vec3(10,2,10)
-#define LARGE_FLOOR_SIZE vec3(20,2,20)
-#define FLOOR_SIZE vec3(5,2,10)
+#define WIDE_FLOOR vec3(50,2,10)
+#define MEDIUM_FLOOR vec3(10,2,10)
+#define LARGE_FLOOR vec3(20,2,20)
+#define FLOOR vec3(5,2,10)
 #define WALL_SIZE_STR vec3(2,30,4)
 #define WALL_SIZE_HOR vec3(4,30,2)
-#define OBSTACLE_SIZE vec3(5,5,5)
-#define DEBUG_FLOOR_SIZE vec3(300,2,300)
+#define OBSTACLE vec3(5,10,5)
+#define DEBUG_FLOOR vec3(300,2,300)
 #define Floor vec3(1000,1,1000)
 
 struct PhysBody3D;

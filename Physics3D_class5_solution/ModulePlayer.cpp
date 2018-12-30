@@ -144,7 +144,6 @@ bool ModulePlayer::Start()
 bool ModulePlayer::CleanUp()
 {
 	LOG("Unloading player");
-
 	return true;
 }
 
@@ -187,41 +186,70 @@ update_status ModulePlayer::Update(float dt)
 
 	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
 	{
+	//resets the game
 		IdentityMatrix = IDENTITY;
 		vehicle->SetTransform(IdentityMatrix.M);
 		vehicle->SetPos(startPos.x, startPos.y, startPos.z);
+		vehicle->GetBody()->setAngularVelocity({ 0, 0, 0 });
+		vehicle->GetBody()->setLinearVelocity({ 0, 0, 0 });
 	}
 		
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
 	vehicle->Render();
-	
-	//char title[80];
-	sprintf_s(title, "%.1f Km/h --- Player 1 Points: %i --- Player 2 Points: %i --- Turn: %i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-	App->window->SetTitle(title);
 	pointsp1 = App->scene_intro->points1;
 	pointsp2 = App->scene_intro->points2;
+	turn_number = App->scene_intro->turn_num;
+
+	if (turn_number <= 6) {
+		sprintf_s(title, "%.1f Km/h --- Player 1 Points: %i --- Player 2 Points: %i --- Turn: %i ", vehicle->GetKmh(), pointsp1, pointsp2, turn_number);
+		App->window->SetTitle(title);
+	}
+
+	else if (turn_number  == 7) {
+		if (pointsp1 > pointsp2) {
+			sprintf_s(title, "Player 1 Wins! Player 1 Points: %i  --- Player 2 Points: %i - Press R or ESC", pointsp1, pointsp2);
+			App->window->SetTitle(title);
+		}
+		else if (pointsp1 < pointsp2) {
+			sprintf_s(title, "Player 2 Wins! Player 2 Points: %i  --- Player 1 Points: %i - Press R or ESC", pointsp2, pointsp1);
+			App->window->SetTitle(title);
+		}
+		else if (pointsp1 == pointsp2) {
+			sprintf_s(title, "Draw! Player 1 Points: %i  --- Player 2 Points: %i - Press R or ESC", pointsp1, pointsp2);
+			App->window->SetTitle(title);
+		}
+	}
+	
 	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer::Restart(int turn_num, bool collision) {
 	if (turn_num <= 6) {
-		vehicle->SetPos(0, 102, 0);
-				
+		IdentityMatrix = IDENTITY;
+		vehicle->SetTransform(IdentityMatrix.M);
+		vehicle->SetPos(startPos.x, startPos.y, startPos.z);
+		vehicle->GetBody()->setAngularVelocity({ 0, 0, 0 });
+		vehicle->GetBody()->setLinearVelocity({ 0, 0, 0 });
 		collision = false;
 	}
-	/*if (turn_num == 7) {
-		vehicle->SetPos(50, 0, 50);
-		if (pointsp1 > pointsp2) {
-			sprintf_s(title, "Player 1 Wins! Press 8 to restart or ESC to quit. Player 1 Points: %i  --- Player 2 Points: %i", App->scene_intro->points1, App->scene_intro->points2);
-		}
-		else if (pointsp1 < pointsp2) {
-			sprintf_s(title, "Player 2 Wins! Press 8 to restart or ESC to quit. Player 2 Points: %i  --- Player 1 Points: %i", App->scene_intro->points2, App->scene_intro->points1);
-		}
-	}*/
+
+	if (turn_num == 7) {
+		IdentityMatrix = IDENTITY;
+		vehicle->SetTransform(IdentityMatrix.M);
+		vehicle->SetPos(50, 1510, 50);
+		vehicle->GetBody()->setAngularVelocity({ 0, 0, 0 });
+		vehicle->GetBody()->setLinearVelocity({ 0, 0, 0 });
+	}
 
 }
+/*
+void ModulePlayer::Stop()
+{
+	vehicle->GetBody()->setAngularVelocity({ 0, 0, 0 });
+	vehicle->GetBody()->setLinearVelocity({ 0, 0, 0 });
+}*/
 
 
 

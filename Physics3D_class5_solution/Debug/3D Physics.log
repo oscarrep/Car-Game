@@ -1,13 +1,4 @@
-﻿  Application.cpp
-  Main.cpp
-  ModuleAudio.cpp
-c:\users\adell\documents\github\car-game\physics3d_class5_solution\moduleaudio.cpp(73): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  ModuleCamera3D.cpp
-  ModuleInput.cpp
-  ModulePhysics3D.cpp
-  ModulePlayer.cpp
-  ModuleRenderer3D.cpp
+﻿  ModulePlayer.cpp
   ModuleSceneIntro.cpp
-  ModuleWindow.cpp
   Generating Code...
   3D Physics.vcxproj -> C:\Users\adell\Documents\GitHub\Car-Game\Physics3D_class5_solution\Debug\3D Physics - class5.exe

@@ -42,17 +42,23 @@ update_status ModuleSceneIntro::Update(float dt)
 {
 	PaintFloor();
 
+	if (App->input->GetKey(SDL_SCANCODE_R) == KEY_DOWN)
+	{
+		//resets the game
+		points1 = 0;
+		points2 = 0;
+		turn_num = 1;
+	}
+
 	return UPDATE_CONTINUE;
 }
 
 
 void ModuleSceneIntro::LoadFloor() {
 //	
-	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), White);
-
 	//ramp
-	CreateFloor(DEBUG_FLOOR, vec3(zeros.x, zeros.y, zeros.x - FLOOR.z));
-	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), Green);
+	//CreateFloor(DEBUG_FLOOR, vec3(zeros.x, zeros.y, zeros.x - FLOOR.z));
+	CreateFloor(Floor, vec3(zeros.x, zeros.y, zeros.x), White);
 
 	CreateFloor(WIDE_FLOOR, vec3(zeros.x, zeros.y + 100.0f, zeros.x - FLOOR.z), White);
 	CreateFloor(WIDE_FLOOR, vec3(zeros.x, zeros.y + 100.0f, zeros.x), White);
@@ -100,14 +106,12 @@ void ModuleSceneIntro::LoadFloor() {
 	CreateFloor(WIDE_FLOOR, vec3(zeros.x, zeros.y + 10.65f, zeros.x + FLOOR.z * 31 - 22.75f), White, Xaxis, -20.0f); //ramp
 
 
-	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z), Green);
-	CreateFloor(Box, vec3(zeros.x + 25.0f, zeros.y, zeros.z + 25.0f), Green, Yaxis, 90.0f);
-	CreateFloor(Box, vec3(zeros.x + 75.0f, zeros.y, zeros.z + 25.0f), Green, Yaxis, 90.0f);
-	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z + 50.0f), Green);
-	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y, zeros.z + 25.0f), Green, Xaxis, 90.0f);
-	
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y +1500.0f, zeros.z), Green);
+	CreateFloor(Box, vec3(zeros.x + 25.0f, zeros.y +1500.0f, zeros.z + 25.0f), Green, Yaxis, 90.0f);
+	CreateFloor(Box, vec3(zeros.x + 75.0f, zeros.y +1500.0f, zeros.z + 25.0f), Green, Yaxis, 90.0f);
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y +1500.0f, zeros.z + 50.0f), Green);
+	CreateFloor(Box, vec3(zeros.x + 50.0f, zeros.y +1500.0f, zeros.z + 25.0f), Green, Xaxis, 90.0f);
 
-//	CreateFloor(MEDIUM_FLOOR, vec3(zeros.x, zeros.y + 32.65f, zeros.x - FLOOR.z * 4+0.25f), White);
 	//target
 	//target floor
 	Cube target1 = { 100,2,20 };

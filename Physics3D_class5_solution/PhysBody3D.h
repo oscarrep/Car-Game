@@ -6,6 +6,7 @@
 
 class btRigidBody;
 class Module;
+class vec3;
 
 // =================================================
 struct PhysBody3D
@@ -21,10 +22,13 @@ public:
 	void SetPos(float x, float y, float z);
 	vec3 GetPos();
 	void SetAsSensor(bool is_sensor);
+	void SetAngularVelocity(float x, float y, float z);
+	btRigidBody* GetBody();
 
 private:
 	btRigidBody* body = nullptr;
 	bool is_sensor = false;
+
 public:
 	p2List<Module*> collision_listeners;
 	bool painting = true;

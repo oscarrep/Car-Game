@@ -68,3 +68,14 @@ void PhysBody3D::SetAsSensor(bool is_sensor)
 			body->setCollisionFlags(body->getCollisionFlags() &~btCollisionObject::CF_NO_CONTACT_RESPONSE);
 	}
 }
+
+btRigidBody* PhysBody3D::GetBody()
+{
+	return body;
+}
+
+void PhysBody3D::SetAngularVelocity(float x, float y, float z)
+{
+	body->setAngularVelocity(btVector3(x, y, z));
+	body->setLinearVelocity(btVector3(x, y, z));
+}

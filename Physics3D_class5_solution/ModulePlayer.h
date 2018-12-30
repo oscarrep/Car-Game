@@ -20,6 +20,7 @@ public:
 	update_status Update(float dt);
 	bool CleanUp();
 	void Restart(int turn_num, bool collision);
+	//void Stop();
 
 public:
 
@@ -32,6 +33,7 @@ public:
 	vec3 currentPos;
 	int pointsp1;
 	int pointsp2;
+	int turn_number;
 	char title[80];
 
 };

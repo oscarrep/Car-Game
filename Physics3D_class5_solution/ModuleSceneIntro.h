@@ -19,6 +19,7 @@
 #define OBSTACLE vec3(5,10,5)
 #define DEBUG_FLOOR vec3(300,2,300)
 #define Floor vec3(500,1,2000)
+#define Box vec3 (50,50,3)
 
 struct PhysBody3D;
 struct PhysMotor3D;

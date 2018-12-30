@@ -126,7 +126,7 @@ update_status ModulePlayer::Update(float dt)
 	vec3 position = vehicle->GetPos();
 	vec3 fvec = vehicle->GetForwardVector();
 	// To change relative camera position. {x, z} are in the plane {y} is the vertical dimension
-	App->camera->Position.Set(position.x - fvec.x, 10+position.y - fvec.y , 20+position.z - fvec.z);
+	App->camera->Position.Set(position.x - fvec.x, 10+position.y - fvec.y , -20+position.z - fvec.z);
 	App->camera->LookAt(vehicle->GetPos());
 
 	turn = acceleration = brake = 0.0f;

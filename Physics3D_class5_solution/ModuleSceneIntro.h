@@ -14,11 +14,10 @@
 #define TARGET4 vec3(100,2,20)
 #define TARGET5 vec3(100,2,20)
 #define FLOOR vec3(5,2,10)
-#define WALL_STR vec3(2,30,4)
-#define WALL_HOR vec3(4,30,2)
+#define RAMP vec3(5,3,10)
 #define OBSTACLE vec3(5,10,5)
 #define DEBUG_FLOOR vec3(300,2,300)
-#define Floor vec3(500,1,2000)
+#define BaseFloor vec3(500,1,2000)
 #define Box vec3 (50,50,3)
 
 struct PhysBody3D;

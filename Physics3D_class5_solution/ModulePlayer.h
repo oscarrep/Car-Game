@@ -29,8 +29,7 @@ public:
 	float acceleration;
 	float brake;
 	vec3 position = { 0.0f,0.0f,0.0f };
-	vec3 startPos = { 0.0f,100.0f,0.0f };
-	vec3 currentPos;
+	vec3 startPos = { 0.0f,200.0f,0.0f };
 	int pointsp1;
 	int pointsp2;
 	int turn_number;

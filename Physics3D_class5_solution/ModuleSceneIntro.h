@@ -45,6 +45,7 @@ public:
 	PhysBody3D* target3_s;
 	PhysBody3D* target4_s;
 	PhysBody3D* target5_s;
+	PhysBody3D* floor_s;
 
 	PhysBody3D* pb_chassis;
 	Cube p_chassis;

@@ -156,7 +156,6 @@ update_status ModulePlayer::Update(float dt)
 	// To change relative camera position. {x, z} are in the plane {y} is the vertical dimension
 	App->camera->Position.Set(position.x - fvec.x, 10+position.y - fvec.y , -20+position.z - fvec.z);
 	App->camera->LookAt(vehicle->GetPos());
-
 	turn = acceleration = brake = 0.0f;
 
 	if(App->input->GetKey(SDL_SCANCODE_UP) == KEY_REPEAT)
@@ -193,37 +192,38 @@ update_status ModulePlayer::Update(float dt)
 		vehicle->SetPos(startPos.x, startPos.y, startPos.z);
 		
 	}
-
+		
 	vehicle->ApplyEngineForce(acceleration);
 	vehicle->Turn(turn);
 	vehicle->Brake(brake);
 	vehicle->Render();
 	
-	
-
+	//char title[80];
+	sprintf_s(title, "%.1f Km/h --- Player 1 Points: %i --- Player 2 Points: %i --- Turn: %i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
+	App->window->SetTitle(title);
+	pointsp1 = App->scene_intro->points1;
+	pointsp2 = App->scene_intro->points2;
 	return UPDATE_CONTINUE;
 }
 
 void ModulePlayer::Restart(int turn_num, bool collision) {
 	if (turn_num <= 6) {
-		vehicle->SetPos(0, 100, 0);
-		acceleration = 0;
-		vehicle->ApplyEngineForce(acceleration);
+		vehicle->SetPos(0, 102, 0);
+				
 		collision = false;
 	}
+	if (turn_num == 7) {
+		vehicle->SetPos(50, 0, 50);
+		if (pointsp1 > pointsp2) {
+			sprintf_s(title, "Player 1 Wins! Press 8 to restart or ESC to quit. Player 1 Points: %i  --- Player 2 Points: %i", App->scene_intro->points1, App->scene_intro->points2);
+		}
+		else if (pointsp1 < pointsp2) {
+			sprintf_s(title, "Player 2 Wins! Press 8 to restart or ESC to quit. Player 2 Points: %i  --- Player 1 Points: %i", App->scene_intro->points2, App->scene_intro->points1);
+		}
+	}
 
 }
 
-void ModulePlayer::UI(int turn_num) {
-	char title[80];
-	if (turn_num <= 6) {
-	sprintf_s(title, "%.1f Km/h // Player 1 Points:%i  Player 2 Points:%i  Turn:%i ", vehicle->GetKmh(), App->scene_intro->points1, App->scene_intro->points2, App->scene_intro->turn_num);
-	App->window->SetTitle(title);
-	}
-	if (turn_num) {
-
-	}
-}
 
 
 

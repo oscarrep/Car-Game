@@ -145,6 +145,13 @@ void ModuleSceneIntro::LoadFloor() {
 	target5_s->GetTransform(&target5.transform);
 	target5_s->collision_listeners.add(this);
 
+	Cube floor_targ = { 500,1,2000 };
+	floor_targ.SetPos(zeros.x, zeros.y, zeros.x);
+	floor_s = App->physics->AddBody(floor_targ, 0.0f);
+	floor_s->SetAsSensor(true);
+	floor_s->GetTransform(&target5.transform);
+	floor_s->collision_listeners.add(this);
+
 	CreateFloor(TARGET1, vec3(zeros.x, zeros.y, zeros.x + TARGET1.z * 24), Red);
 	CreateFloor(TARGET2, vec3(zeros.x, zeros.y, zeros.x + TARGET2.z * 25), Blue);
 	CreateFloor(TARGET3, vec3(zeros.x, zeros.y, zeros.x + TARGET3.z * 26), Green);
@@ -192,51 +199,51 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 += 3;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num,collision);
 				}
 				else {
-					points1 += 3;
+					points2 += 3;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
 			}
 			if ((body2 == target2_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target2_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				if (turn_num % 2 != 0) {
-					points1 += 3;
+					points1 += 2;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				else {
-					points1 += 3;
+					points2 += 2;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
 			}
 			if ((body2 == target3_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target3_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				if (turn_num % 2 != 0) {
-					points1 += 3;
+					points1 += 1;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				else {
-					points1 += 3;
+					points2 += 1;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
 			}
 			if ((body2 == target4_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == target4_s && body2 == (PhysBody3D*)App->player->vehicle))) {
 				if (turn_num % 2 != 0) {
-					points1 += 3;
+					points1 += 2;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				else {
-					points1 += 3;
+					points2 += 2;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
 			}
@@ -244,12 +251,25 @@ void ModuleSceneIntro::OnCollision(PhysBody3D* body1, PhysBody3D* body2)
 				if (turn_num % 2 != 0) {
 					points1 += 3;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
 				}
 				else {
-					points1 += 3;
+					points2 += 3;
 					collision = true;
-					App->player->Restart(collision);
+					App->player->Restart(turn_num, collision);
+				}
+				turn_num++;
+			}
+			if ((body2 == floor_s && body1 == (PhysBody3D*)App->player->vehicle) || ((body1 == floor_s && body2 == (PhysBody3D*)App->player->vehicle))) {
+				if (turn_num % 2 != 0) {
+					points1 -= 1;
+					collision = true;
+					App->player->Restart(turn_num, collision);
+				}
+				else {
+					points2 -= 1;
+					collision = true;
+					App->player->Restart(turn_num, collision);
 				}
 				turn_num++;
 			}

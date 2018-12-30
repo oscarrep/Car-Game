@@ -25,7 +25,7 @@ void PhysVehicle3D::Render()
 {
 	Cylinder wheel;
 
-	wheel.color = Pink;
+	wheel.color = Black;
 
 	for(int i = 0; i < vehicle->getNumWheels(); ++i)
 	{
@@ -50,7 +50,7 @@ void PhysVehicle3D::Render()
 	chassis.transform.M[13] += offset.getY();
 	chassis.transform.M[14] += offset.getZ();
 
-	chassis.color = Green;
+	chassis.color = Blue;
 
 	//---CABIN
 	Cube cabin(info.cabin_size.x, info.cabin_size.y, info.cabin_size.z);
@@ -62,7 +62,7 @@ void PhysVehicle3D::Render()
 	cabin.transform.M[13] += cabinOffset.getY();
 	cabin.transform.M[14] += cabinOffset.getZ();
 
-	cabin.color = Yellow;
+	cabin.color = Cyan;
 
 	//---LIGTHS---
 	//---LEFT
@@ -140,8 +140,7 @@ float PhysVehicle3D::GetKmh() const
 
 vec3 PhysVehicle3D::GetForwardVector() const
 {
-	btVector3 direction;
-	vehicle->getForwardVector();
+	btVector3 direction = vehicle->getForwardVector();
 	vec3 ret;
 	ret.Set(direction.getX(), direction.getY(), direction.getZ());
 	return ret;

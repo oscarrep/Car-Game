@@ -38,3 +38,4 @@ extern Color Cyan;
 extern Color LightBlue;
 extern Color Magenta;
 extern Color Grey;
+extern Color DarkGrey;

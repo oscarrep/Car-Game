@@ -12,4 +12,5 @@ Color Orange	= Color(1.0f, 0.3f, 0.0f);
 Color Cyan		= Color(0.0f, 1.0f, 1.0f);
 Color LightBlue = Color(0.0f, 0.5f, 1.0f);
 Color Magenta	= Color(1.0f, 0.0f, 0.5f);
-Color Grey		= Color(0.5f, 0.5f, 10.5f);
+Color Grey		= Color(0.5f, 0.5f, 0.5f);
+Color DarkGrey	= Color(0.2f, 0.2f, 0.2f);
